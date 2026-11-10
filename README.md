@@ -1,116 +1,117 @@
-# 📷 3D Cinematic Camera Viewfinder Scrollytelling Experience
+# 📷 3D Sinematik Kamera Vizörü Scrollytelling Deneyimi
 
-A cutting-edge, web-based 3D scrollytelling experience built with **Three.js**, **GSAP ScrollTrigger**, and **Vite**. The project takes the viewer on a seamless cinematic journey starting from an external perspective around a vintage Canon analog camera, diving straight through the optical viewfinder, passing through the interior lens tunnel, and bursting out into an atmospheric meadow where it macro-focuses onto a delicate orchid flower and an animated 3D credit emblem.
-
----
-
-## ✨ Features
-
-- **🎬 GSAP ScrollTrigger Cinematic Camera Trajectory**
-  - **Phase 1: Rear Approach:** Smooth cinematic zoom approaching the camera body and aligning directly with the optical viewfinder window.
-  - **Phase 2: Viewfinder Entry:** Seamless dive right through the viewfinder glass into the internal optical housing.
-  - **Phase 3: Lens Barrel Descend:** Controlled trajectory drop down to the optical axis (`Y: 0.24`) through the lens elements, accompanied by dynamic exposure dimming.
-  - **Phase 4: Lens Burst to Nature:** Dramatic emergence through the front lens into an expansive natural meadow with sudden bloom and tone mapping adaptation.
-  - **Phase 5: Flower Macro & Credit Reveal:** Smooth decelerated macro focus onto the blooming orchid alongside a dynamic back-eased 3D emblem reveal.
-
-- **🕹️ OrbitControls & GSAP Hybrid Rail System**
-  - Freedom to inspect the scene at any moment using left-click rotation and right-click panning.
-  - When the user starts scrolling or moving the mouse wheel, the camera smoothly and dynamically lerps (`GSAP tween & Vector3.lerpVectors`) back to its exact cinematic trajectory path without snapping or camera pops.
-
-- **🌱 Procedural Grass Meadow with Wind Dynamics**
-  - Over 3,000 instanced grass blades rendered in a single draw call via `THREE.InstancedMesh`.
-  - Exclusion zones preventing grass generation inside the camera body and along the lens tunnel corridor.
-  - Continuous organic wind swaying physics computed in the animation loop.
-
-- **📸 Detailed GLTF Model Integration**
-  - Realistic vintage **Canon Analog Camera** GLTF model with custom glass material transmission and transparency handling.
-  - High-fidelity **Orchid Flower** GLTF model featuring double-sided botanical materials and natural breeze physics.
-
-- **💎 3D Floating Double-Sided "made by loxiw" Emblem**
-  - Dynamically rendered on an in-memory high-resolution Canvas with soft drop-shadow typography.
-  - Frame-rate independent continuous unidirectional rotation and harmonic bobbing animation.
-  - True double-sided rendering with custom depth testing.
+**Three.js**, **GSAP ScrollTrigger** ve **Vite** ile geliştirilmiş son teknoloji, web tabanlı bir 3D scrollytelling deneyimi. Proje, kullanıcıyı nostaljik bir Canon analog fotoğraf makinesinin dışından başlatan, optik vizör camından içeri daldıran, dahili lens tünelinden geçiren ve atmosferik bir çimenlik alana fırlatarak narin bir orkide çiçeğine ve hareketli bir 3D imza amblemine makro odaklanan kesintisiz, sinematik bir görsel yolculuğa çıkarır.
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Özellikler
 
-- **[Three.js](https://threejs.org/)** (v0.187+) - WebGL 3D rendering engine, materials, instanced meshes, and lighting.
-- **[GSAP & ScrollTrigger](https://greensock.com/scrolltrigger/)** - Scrollytelling timeline, scrub interpolation, and exposure transitions.
-- **[Vite](https://vitejs.dev/)** (v8+) - Ultra-fast development server and modern bundling.
-- **JavaScript (ES6+)** - Modular architecture and mathematical vector operations.
+- **🎬 GSAP ScrollTrigger Destekli Sinematik Kamera Rotası**
+  - **1. Aşama: Arkadan Yaklaşma:** Kamera gövdesine arkadan yumuşak bir sinematik açıyla yaklaşma ve optik vizör penceresiyle tam hizalanma.
+  - **2. Aşama: Vizörden Giriş:** Vizör camının içinden geçerek dahili optik gövdenin içine pürüzsüz dalış.
+  - **3. Aşama: Lens Tüneline İniş:** Lens elemanları boyunca optik merkez eksenine (`Y: 0.24`) kontrollü iniş ve eşzamanlı pozlama karartma geçişi.
+  - **4. Aşama: Lensten Doğaya Çıkış:** Ön lensten aniden dışarı fırlayarak geniş, atmosferik bir çimenlik vadiye çıkış; ani ışık patlaması (bloom) ve ton haritalama (tone mapping) adaptasyonu.
+  - **5. Aşama: Çiçeğe Makro Odak ve İmza:** Çiçek açan orkideye sakin ve yavaşlayan bir makro odaklanma ile arkadan fırlayan dinamik bir 3D imza amblemi.
+
+- **🕹️ OrbitControls & GSAP Hibrit Ray Sistemi**
+  - Kullanıcı istediği an sol tık ile serbestçe döndürme (rotate) ve sağ tık ile sahneyi kaydırma (pan) yaparak ortamı serbestçe inceleyebilir.
+  - Kullanıcı fare tekerleğini döndürdüğü veya sayfayı kaydırdığı anda, kamera herhangi bir takılma veya sıçrama olmadan yumuşak bir geçişle (`GSAP tween & Vector3.lerpVectors`) sinematik yönetmen rayına pürüzsüzce geri döner.
+
+- **🌱 Prosedürel Çimen Arazisi ve Rüzgar Fiziği**
+  - `THREE.InstancedMesh` kullanılarak tek bir çizim çağrısında (single draw call) oluşturulan 3.000'den fazla bağımsız çimen yaprağı.
+  - Kamera gövdesinin içi ve lens tüneli koridorunda çimen çıkmasını engelleyen özel dışlama bölgeleri (exclusion zones).
+  - Animasyon döngüsünde gerçek zamanlı hesaplanan sürekli ve doğal rüzgar dalgalanma fiziği.
+
+- **📸 Yüksek Kaliteli GLTF Model Entegrasyonu**
+  - Özel cam materyali geçirgenlik ve şeffaflık optimizasyonlarına sahip nostaljik **Canon Analog Fotoğraf Makinesi** 3D modeli.
+  - Çift taraflı botanik materyallere ve doğal rüzgar salınım fiziğine sahip detaylı **Orkide Çiçeği** 3D modeli.
+
+- **💎 Süzülen Çift Taraflı 3D "made by loxiw" İmzası**
+  - Bellek içi yüksek çözünürlüklü Canvas üzerinde yumuşak gölgeli tipografi ile dinamik olarak çizilen doku.
+  - Monitör yenileme hızından (Hz) bağımsız, tek yöne doğru sürekli sakin dönüş ve dikey süzülme (bobbing) animasyonu.
+  - Çift taraflı görünüm ve optimize edilmiş derinlik testi.
 
 ---
 
-## 🕹️ Controls & Interaction
+## 🛠️ Kullanılan Teknolojiler
 
-| Interaction | Action |
+- **[Three.js](https://threejs.org/)** (v0.187+) - WebGL 3D render motoru, materyaller, instanced mesh'ler ve sahne aydınlatması.
+- **[GSAP & ScrollTrigger](https://greensock.com/scrolltrigger/)** - Scrollytelling zaman çizelgesi, scrub interpolasyonu ve dinamik pozlama geçişleri.
+- **[Vite](https://vitejs.dev/)** (v8+) - Yüksek performanslı modern geliştirme sunucusu ve derleyici.
+- **JavaScript (ES6+)** - Modüler mimari ve 3D vektör matematiği.
+
+---
+
+## 🕹️ Kontroller ve Etkileşim
+
+| Etkileşim | Eylem |
 | --- | --- |
-| **Scroll / Mouse Wheel** | Travel along the cinematic scrollytelling path |
-| **Left Click + Drag** | Orbit and inspect the camera / environment freely |
-| **Right Click + Drag** | Pan the camera perspective |
-| **Resume Scrolling** | Smoothly snaps (lerp) back to the cinematic director rail |
+| **Kaydırma / Fare Tekerleği (Scroll)** | Sinematik scrollytelling rotasında ileri/geri hareket |
+| **Sol Tık + Sürükle** | Sahneyi ve kamerayı serbestçe döndürerek incele |
+| **Sağ Tık + Sürükle** | Kamera bakış açısını kaydır (Pan) |
+| **Tekrar Kaydırma Yapıldığında** | Otomatik olarak yumuşakça (lerp) sinematik raya geri döner |
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Kurulum ve Çalıştırma
 
-Follow these steps to run the project locally on your machine:
+Projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin:
 
-### Prerequisites
+### Gereksinimler
 
-Ensure you have [Node.js](https://nodejs.org/) (v18 or higher recommended) installed.
+Bilgisayarınızda [Node.js](https://nodejs.org/) (v18 veya üzeri önerilir) kurulu olmalıdır.
 
-### Installation
+### Adım Adım Kurulum
 
-1. Clone the repository:
+1. Repoyu klonlayın:
    ```bash
    git clone https://github.com/loxiwwxd/3d-cinematic-camera-scrollytelling.git
    cd 3d-cinematic-camera-scrollytelling
    ```
 
-2. Install dependencies:
+2. Bağımlılıkları yükleyin:
    ```bash
    npm install
    ```
 
-3. Start the local development server:
+3. Geliştirme sunucusunu başlatın:
    ```bash
    npm run dev
    ```
 
-4. Build for production:
+4. Canlı (production) derleme alın:
    ```bash
    npm run build
    ```
 
-5. Preview production build:
+5. Derlemeyi önizleyin:
    ```bash
    npm run preview
    ```
 
 ---
 
-## 📁 Project Structure
+## 📁 Proje Dosya Yapısı
 
 ```
 ├── public/
 │   ├── models/
-│   │   ├── camera.glb       # Vintage Canon camera 3D model
-│   │   └── flower.glb       # Orchid flower 3D model
+│   │   ├── camera.glb       # Vintage Canon kamera 3D modeli
+│   │   └── flower.glb       # Orkide çiçeği 3D modeli
 │   ├── favicon.svg
 │   └── icons.svg
 ├── src/
-│   ├── main.js              # Three.js scene, lighting, loaders, GSAP timeline & loop
-│   └── style.css            # Canvas styling & scroll track height layout
-├── index.html               # Canvas container & entry point
-├── package.json             # Dependencies and scripts
-└── vite.config.js           # Vite configuration
+│   ├── main.js              # Three.js sahnesi, ışıklar, yükleyiciler, GSAP timeline ve döngü
+│   └── style.css            # Canvas stilleri ve scroll yüksekliği düzeni
+├── index.html               # Canvas kapsayıcısı ve giriş noktası
+├── package.json             # Bağımlılıklar ve npm scriptleri
+└── README.md                # Proje dokümantasyonu
 ```
 
 ---
 
-## 👤 Author
+## 👤 Geliştirici
 
-Crafted with passion by **loxiw**.
+**loxiw** tarafından özenle geliştirilmiştir.
 
+- GitHub: [@loxiwwxd](https://github.com/loxiwwxd)
