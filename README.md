@@ -112,6 +112,6 @@ Bilgisayarınızda [Node.js](https://nodejs.org/) (v18 veya üzeri önerilir) ku
 
 ## 👤 Geliştirici
 
-**loxiw** tarafından özenle geliştirilmiştir.
+**loxiw** tarafından geliştirilmiştir.
 
 - GitHub: [@loxiwwxd](https://github.com/loxiwwxd)
