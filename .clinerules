@@ -1,0 +1,5 @@
+- ASLA selamlama, özet veya kapanış nezaket cümleleri kurma.
+- Dosya düzenlerken tüm dosyayı baştan yazma; sadece değişen satırları (diff) uygula.
+- Three.js kurulumlarında modern ES modülleri ve responsive resize dinleyicisi kullan.
+- GLTF/GLB modellerini yüklerken DRACOLoader desteğini ve hata yakalama (try/catch) bloklarını hazırla.
+- Animasyonlar için GSAP ve ScrollTrigger kütüphanelerini entegre et.
